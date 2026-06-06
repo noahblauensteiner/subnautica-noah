@@ -30,12 +30,15 @@
 - [x] Populate Act 1 rows from wiki research (see `act1_items.json` for raw data)
 - [x] Validate table loads without errors in UE editor
 
-### Phase 3 — Manager & Reveal System `[ ]`
-- [ ] Implement `BP_NOACopilotManager.RevealEntry(ID: FName)` — marks entry as REVEALED in runtime state
-- [ ] Wire reveal to fire on NOA terminal dialogue tag events (find exact delegate via UE4SS dumper)
-- [ ] Wire reveal to fire on blackbox signal pickup events
-- [ ] Test: manually call `RevealEntry` from UE console, confirm entry appears in HUD
-- [ ] Newly revealed entries play a subtle slide-in animation
+### Phase 3 — Manager & Reveal System `[~]`
+- [x] Define `FProgressionEntry`, `EChapter`, `ECategory`, `EEntryStatus` — `Source/NOACopilot/Public/NOACopilotTypes.h`
+- [x] Implement `ANOACopilotManager` C++ skeleton — reveal/collect logic, trigger map, query API, status change delegate
+- [x] Stub `UNOACopilotSaveComponent` — load/flush placeholders (real impl in Phase 5)
+- [ ] **REQUIRES IN-GAME:** Run UE4SS C++ dumper (Ctrl+H) to find real class names for NOA terminal, blackbox signal, pickup, scanner, root HUD widget
+- [ ] Replace TODOs in `lua/noa_copilot_hooks.lua` with dumped class names
+- [ ] Create `BP_NOACopilotManager` Blueprint subclass in UE editor, assign `DA_ProgressionDatabase`
+- [ ] Test: call `RevealEntryFromLua` / `MarkCollectedFromLua` from UE4SS console, verify `OnEntryStatusChanged` fires
+- [ ] Newly revealed entries play a subtle slide-in animation (wire in Phase 6 HUD work)
 
 ### Phase 4 — Real-time Collection Hook `[ ]`
 - [ ] Write UE4SS Lua script to intercept `OnItemPickedUp(itemID)` and `OnScanCompleted(entityID)`
