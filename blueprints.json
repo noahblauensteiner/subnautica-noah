@@ -1,0 +1,264 @@
+{
+  "_meta": {
+    "status": "verified — games.gg guide, updated May 15 2026",
+    "coordinate_format": "X, Y, Z (use F1 in-game to display)",
+    "patch": "v0.1.4",
+    "source": "https://games.gg/subnautica-2/guides/subnautica-2-all-blueprint-locations/"
+  },
+  "tools": [
+    {
+      "id": "bp_flashlight",
+      "display_name": "Flashlight",
+      "category": "Tool",
+      "recipe": { "Titanium": 2, "Quartz": 1, "BasicBattery": 1 },
+      "locations": [
+        {
+          "coords": "-337995, 433485, -3343",
+          "landmark": "Under Lifepod",
+          "description": "Small cave directly under the Lifepod",
+          "distance_from_lifepod": "0m"
+        },
+        {
+          "coords": "-334253, 432923, -1225",
+          "landmark": "East of Lifepod",
+          "description": "32m East of the Lifepod",
+          "distance_from_lifepod": "32m"
+        }
+      ]
+    },
+    {
+      "id": "bp_habitat_builder",
+      "display_name": "Habitat Builder",
+      "category": "Tool",
+      "recipe": { "Titanium": 2, "Glass": 1, "BasicBattery": 1, "CopperWire": 1 },
+      "locations": [
+        {
+          "coords": "-332634, 441264, -913",
+          "landmark": "Welcome Center",
+          "description": "95m Southeast of Lifepod, inside a crate beside the Welcome Center sign",
+          "distance_from_lifepod": "95m SE"
+        },
+        {
+          "coords": "-332391, 440012, -1429",
+          "landmark": "Welcome Center",
+          "description": "83m Southeast of Lifepod, beneath the hole in the Welcome Center",
+          "distance_from_lifepod": "83m SE"
+        }
+      ]
+    },
+    {
+      "id": "bp_sonic_resonator",
+      "display_name": "Sonic Resonator",
+      "category": "Tool",
+      "recipe": { "BasicBattery": 1, "TitaniumIngot": 2, "Lead": 2, "WiringKit": 1 },
+      "warning": "Old Habitat is 400m+ North — ensure oxygen and tank capacity before heading there",
+      "locations": [
+        {
+          "coords": "-337470, 393080, -5580",
+          "landmark": "Old Habitat entrance",
+          "description": "407m North of Lifepod, right of the door to the Old Habitat entrance",
+          "distance_from_lifepod": "407m N"
+        },
+        {
+          "coords": "-336481, 393904, -5392",
+          "landmark": "Old Habitat",
+          "description": "398m North of Lifepod, inside the next room of the Old Habitat",
+          "distance_from_lifepod": "398m N"
+        }
+      ]
+    },
+    {
+      "id": "bp_wakemaker",
+      "display_name": "Wakemaker",
+      "category": "Tool",
+      "recipe": { "Silver": 1, "WiringKit": 1, "Grease": 1, "BasicBattery": 1 },
+      "locations": [
+        {
+          "coords": "-321162, 420919, -2335",
+          "landmark": "Debris field",
+          "description": "203m Northeast of Lifepod, small crate near debris",
+          "distance_from_lifepod": "203m NE"
+        },
+        {
+          "coords": "-326870, 427284, -3015",
+          "landmark": "Small cave",
+          "description": "123m East-Northeast of Lifepod, on a table inside a small cave",
+          "distance_from_lifepod": "123m ENE"
+        },
+        {
+          "coords": "-334556, 421427, -2890",
+          "landmark": "Ruined outpost",
+          "description": "126m North-Northeast of Lifepod, crate near a ruined outpost",
+          "distance_from_lifepod": "126m NNE"
+        }
+      ]
+    }
+  ],
+  "base_parts": [
+    {
+      "id": "bp_biobed",
+      "display_name": "Biobed",
+      "category": "BasePart",
+      "recipe": { "Titanium": 3, "Glass": 1, "CopperWire": 1 },
+      "locations": [
+        {
+          "coords": "-323736, 409359, -1684",
+          "landmark": "Camp One",
+          "description": "276m North-Northeast of Lifepod, further inside Camp One, just behind the dining chair",
+          "distance_from_lifepod": "276m NNE"
+        }
+      ]
+    },
+    {
+      "id": "bp_bioreactor",
+      "display_name": "Bioreactor",
+      "category": "BasePart",
+      "recipe": { "TitaniumIngot": 2, "CopperIngot": 2 },
+      "locations": [
+        {
+          "coords": "-309234, 408373, -6540",
+          "landmark": "Cicada Wreck (Lander Garage)",
+          "description": "386m Northeast of Lifepod, inside the Cicada Wreck Lander Garage, beside the tadpole fragment",
+          "distance_from_lifepod": "386m NE"
+        },
+        {
+          "coords": "-337650, 395887, -5501",
+          "landmark": "Old Habitat",
+          "description": "379m North of Lifepod, inside the Old Habitat",
+          "distance_from_lifepod": "379m N"
+        },
+        {
+          "coords": "-296414, 428489, -4540",
+          "landmark": "Metal crate",
+          "description": "400m East of Lifepod, inside a large metal crate",
+          "distance_from_lifepod": "400m E"
+        }
+      ]
+    },
+    {
+      "id": "bp_dining_chair",
+      "display_name": "Dining Chair",
+      "category": "BasePart",
+      "recipe": { "Titanium": 2 },
+      "locations": [
+        {
+          "coords": "-323736, 409359, -1684",
+          "landmark": "Camp One",
+          "description": "276m North-Northeast of Lifepod, inside Camp One",
+          "distance_from_lifepod": "276m NNE"
+        }
+      ]
+    },
+    {
+      "id": "bp_dining_table",
+      "display_name": "Dining Table",
+      "category": "BasePart",
+      "recipe": { "Titanium": 3, "Glass": 1 },
+      "locations": [
+        {
+          "coords": "-324430, 411731, -2560",
+          "landmark": "Camp One",
+          "description": "253m North-Northeast of Lifepod, inside Camp One",
+          "distance_from_lifepod": "253m NNE"
+        },
+        {
+          "coords": "-335988, 394933, -5388",
+          "landmark": "Old Habitat",
+          "description": "386m North of Lifepod, inside the Old Habitat",
+          "distance_from_lifepod": "386m N"
+        },
+        {
+          "coords": "-336604, 393822, -5347",
+          "landmark": "Old Habitat",
+          "description": "399m North of Lifepod, inside the Old Habitat",
+          "distance_from_lifepod": "399m N"
+        }
+      ]
+    },
+    {
+      "id": "bp_lab_chair",
+      "display_name": "Lab Chair",
+      "category": "BasePart",
+      "recipe": { "Titanium": 2 },
+      "warning": "1360m+ East of Lifepod — late game, requires vehicle and solid equipment",
+      "locations": [
+        {
+          "coords": "-203476, 447174, -20868",
+          "landmark": "Needler Nest",
+          "description": "1,360m East of Lifepod, at the Needler Nest",
+          "distance_from_lifepod": "1360m E"
+        }
+      ]
+    },
+    {
+      "id": "bp_power_storage",
+      "display_name": "Power Storage",
+      "category": "BasePart",
+      "recipe": { "GermaniumIngot": 1, "Titanium": 3 },
+      "locations": [
+        {
+          "coords": "-213905, 449890, -13244",
+          "landmark": "Rosetta Stone tower (south of Alien Ruins)",
+          "description": "1,247m East of Lifepod, Rosetta Stone tower south of the Alien Ruins",
+          "distance_from_lifepod": "1247m E"
+        },
+        {
+          "coords": "-307365, 461056, -20909",
+          "landmark": "Hot Base",
+          "description": "457m Southeast of Lifepod, inside the Hot Base",
+          "distance_from_lifepod": "457m SE"
+        }
+      ]
+    },
+    {
+      "id": "bp_power_transmitter",
+      "display_name": "Power Transmitter",
+      "category": "BasePart",
+      "recipe": { "Titanium": 1, "Copper": 1 },
+      "locations": [
+        {
+          "coords": "-324518, 396824, -4480",
+          "landmark": "Abandoned outpost",
+          "description": "389m North-Northeast of Lifepod, inside a crate on top of an abandoned outpost",
+          "distance_from_lifepod": "389m NNE"
+        }
+      ]
+    },
+    {
+      "id": "bp_spotlight",
+      "display_name": "Spotlight",
+      "category": "BasePart",
+      "recipe": { "Titanium": 1, "Copper": 2 },
+      "locations": [
+        {
+          "coords": "-214076, 449618, -13128",
+          "landmark": "Rosetta Stone tower (south of Alien Ruins)",
+          "description": "1,248m East of Lifepod, Rosetta Stone tower south of the Alien Ruins, next to Power Storage",
+          "distance_from_lifepod": "1248m E"
+        },
+        {
+          "coords": "-306986, 460074, -20856",
+          "landmark": "Hot Base entrance",
+          "description": "454m Southeast of Lifepod, to the left of the Hot Base entrance",
+          "distance_from_lifepod": "454m SE"
+        }
+      ]
+    },
+    {
+      "id": "bp_thermal_plant",
+      "display_name": "Thermal Plant",
+      "category": "BasePart",
+      "recipe": { "Titanium": 3, "Copper": 3, "Gold": 3 },
+      "warning": "~308m underwater — requires serious depth capability",
+      "locations": [
+        {
+          "coords": "-303294, 451415, -30764",
+          "landmark": "Cavern near Blackbox - Zip",
+          "description": "~492m Southeast of Lifepod, ~308m deep, inside a cavern near Blackbox - Zip",
+          "distance_from_lifepod": "492m SE",
+          "depth": "308m"
+        }
+      ]
+    }
+  ]
+}
