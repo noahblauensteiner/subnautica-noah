@@ -60,6 +60,19 @@
 - [ ] Expand entry → inline detail box shows `HintText` + `LocationHint`
 - [ ] Uncollected revealed entries pulse gently
 - [ ] Scroll if panel overflows screen height
+- [ ] **Map Marker button** on each revealed entry — see Phase 6a below
+
+### Phase 6a — Map Marker System `[ ]`
+- [ ] Add `WorldLocation` field to `FProgressionEntry` (Vector3, populated from `act1_items.json` coords)
+- [ ] Implement `ANOACopilotMarker` actor — mimics scanner room marker style (beacon mesh + map icon)
+- [ ] **REQUIRES IN-GAME:** Dumper — find scanner room marker class (`ScannerRoomMarker`, `BeaconMarker`, or similar) to copy its map registration approach
+- [ ] `ANOACopilotManager.PlaceMarker(EntryID)` — spawns marker at entry's WorldLocation, removes any previous marker for that entry
+- [ ] `ANOACopilotManager.ClearMarker(EntryID)` — destroys the marker actor
+- [ ] `WBP_ProgressionEntry`: add pin icon button, visible only on Revealed (not Collected) entries
+  - Click once → spawns marker, button highlights
+  - Click again → removes marker, button resets
+- [ ] Only one active marker per entry at a time; multiple entries can have markers simultaneously
+- [ ] Marker auto-clears when entry is marked Collected
 
 ### Phase 7 — NOA Terminal & Blackbox Event Wiring `[ ]`
 - [ ] Map every `RevealTrigger` ID in the database to a real in-game event/tag
@@ -91,6 +104,7 @@ struct FProgressionEntry : public FTableRowBase
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FName      RevealTrigger;  // NOA terminal or blackbox ID
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FText      HintText;       // Quote from NOA / signal
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FText      LocationHint;   // "Swim south ~200m depth"
+    UPROPERTY(EditAnywhere, BlueprintReadOnly) FVector    WorldLocation;  // In-game coords for map marker
     // Collected state is NOT stored here — lives in save component runtime state
 };
 ```
@@ -109,9 +123,10 @@ Map<FName, EEntryStatus>  where EEntryStatus = Hidden | Revealed | Collected
 Content/Mods/NOACopilot/
 ├── BP_NOACopilotManager.uasset          ← Persistent actor, auto-spawned by UE4SS
 ├── BP_NOACopilotSaveComponent.uasset    ← Save/load component attached to Manager
+├── BP_NOACopilotMarker.uasset           ← World-space marker actor (scanner room style)
 ├── BP_NOACopilotHUD.uasset             ← Root UMG widget, left-panel anchor
 │   ├── WBP_ChapterSection.uasset       ← Collapsible chapter group
-│   └── WBP_ProgressionEntry.uasset     ← Single item row with expand/collapse
+│   └── WBP_ProgressionEntry.uasset     ← Single item row with expand/collapse + pin button
 ├── DA_ProgressionDatabase.uasset       ← Data Table (FProgressionEntry rows)
 ├── ST_ProgressionEntry.uasset          ← Struct definition for table rows
 ├── E_Chapter.uasset                    ← Chapter enum
@@ -136,6 +151,8 @@ noa-copilot/                            ← This repo folder (data + planning)
 | Game patches break hooks | Lua hooks go through UE4SS which updates per patch; Blueprint logic is more stable |
 | Story data shifts in Early Access | All story data lives in `act1_items.json` + Data Table — update without code changes |
 | Multiplayer (future) | v1 is solo-only; save component architecture is already player-scoped for easy future extension |
+| Map marker class unknown | Scanner room marker class name needs dumper run — `ANOACopilotMarker` falls back to a plain beacon if not found |
+| WorldLocation accuracy | act1_items.json coords are in UE units from game guides; verify scale matches in-engine (may need ÷100 conversion) |
 
 ---
 

@@ -1,5 +1,6 @@
 #include "NOACopilotManager.h"
 #include "NOACopilotSaveComponent.h"
+#include "NOACopilotMarker.h"
 
 ANOACopilotManager::ANOACopilotManager()
 {
@@ -121,4 +122,81 @@ void ANOACopilotManager::SetEntryStatus(FName EntryID, EEntryStatus NewStatus)
     EntryStatusMap.Add(EntryID, NewStatus);
     OnEntryStatusChanged.Broadcast(EntryID, NewStatus);
     SaveComponent->MarkDirty();
+
+    // Auto-clear any marker when the entry is collected
+    if (NewStatus == EEntryStatus::Collected)
+    {
+        ClearMarker(EntryID);
+    }
+}
+
+void ANOACopilotManager::PlaceMarker(FName EntryID)
+{
+    if (!MarkerClass)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("[NOACopilot] MarkerClass not set on Manager — cannot place marker"));
+        return;
+    }
+
+    // Find the entry's world location
+    FVector SpawnLocation = FVector::ZeroVector;
+    bool bFound = false;
+
+    ProgressionDatabase->ForeachRow<FProgressionEntry>(TEXT("PlaceMarker"),
+        [&](const FName& Key, const FProgressionEntry& Row)
+        {
+            if (!bFound && Row.ID == EntryID && !Row.WorldLocation.IsZero())
+            {
+                SpawnLocation = Row.WorldLocation;
+                bFound = true;
+            }
+        });
+
+    if (!bFound)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("[NOACopilot] No WorldLocation for entry %s — marker not placed"), *EntryID.ToString());
+        return;
+    }
+
+    // Remove previous marker for this entry if one exists
+    ClearMarker(EntryID);
+
+    FActorSpawnParameters Params;
+    Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+    ANOACopilotMarker* Marker = GetWorld()->SpawnActor<ANOACopilotMarker>(
+        MarkerClass, SpawnLocation, FRotator::ZeroRotator, Params);
+
+    if (Marker)
+    {
+        Marker->EntryID = EntryID;
+
+        // Pull display name for the beacon label
+        if (const FProgressionEntry* Row = ProgressionDatabase->FindRow<FProgressionEntry>(EntryID, TEXT("PlaceMarker")))
+        {
+            Marker->Label = Row->DisplayName;
+        }
+
+        ActiveMarkers.Add(EntryID, Marker);
+        OnMarkerChanged.Broadcast(EntryID, true);
+    }
+}
+
+void ANOACopilotManager::ClearMarker(FName EntryID)
+{
+    if (ANOACopilotMarker** Found = ActiveMarkers.Find(EntryID))
+    {
+        if (*Found && IsValid(*Found))
+        {
+            (*Found)->Destroy();
+        }
+        ActiveMarkers.Remove(EntryID);
+        OnMarkerChanged.Broadcast(EntryID, false);
+    }
+}
+
+bool ANOACopilotManager::HasMarker(FName EntryID) const
+{
+    const ANOACopilotMarker* const* Found = ActiveMarkers.Find(EntryID);
+    return Found && IsValid(*Found);
 }

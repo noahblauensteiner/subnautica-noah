@@ -63,4 +63,10 @@ struct NOACOPILOT_API FProgressionEntry : public FTableRowBase
     // Human-readable location guidance shown when entry is expanded
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "NOACopilot")
     FText LocationHint;
+
+    // World-space coordinates for the map marker — populate from act1_items.json coords.
+    // NOTE: verify unit scale in-engine; guide coords may need ÷100 conversion.
+    // Zero vector = no marker available for this entry.
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "NOACopilot")
+    FVector WorldLocation = FVector::ZeroVector;
 };
