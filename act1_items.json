@@ -1,0 +1,73 @@
+{
+  "_meta": {
+    "chapter": "Ch1_CrashSite",
+    "status": "draft — needs in-game verification",
+    "sources": ["wiki", "community notes"],
+    "last_updated": "2026-06-06"
+  },
+  "entries": [
+    {
+      "id": "depth_module_mk1",
+      "category": "DepthModule",
+      "display_name": "Depth Module Mk1",
+      "reveal_trigger": "noa_terminal_lifepod",
+      "hint_text": "A depth compensator module is somewhere in the debris field. You'll need it to go deeper.",
+      "location_hint": "Wreckage debris field north-east of lifepod, ~50m depth. Look for a yellow equipment crate.",
+      "collected": false
+    },
+    {
+      "id": "blackbox_aurora_fragment_01",
+      "category": "Blackbox",
+      "display_name": "Aurora Flight Recorder Fragment",
+      "reveal_trigger": "blackbox_signal_alpha",
+      "hint_text": "Signal detected: partial flight recorder data. Source bearing 220°, estimated 300m.",
+      "location_hint": "South-west of crash site, partially buried in sand at 30m. Signal pings every 8 seconds.",
+      "collected": false
+    },
+    {
+      "id": "scannable_leviathan_egg",
+      "category": "Scannable",
+      "display_name": "Leviathan Egg (Unidentified)",
+      "reveal_trigger": "noa_terminal_habitat_alpha",
+      "hint_text": "NOA: Biological mass detected nearby. I recommend scanning it before anything else disturbs it.",
+      "location_hint": "Kelp forest biome, north edge. Large pale ovoid object resting on the seabed at ~80m.",
+      "collected": false
+    },
+    {
+      "id": "upgrade_fins_speed",
+      "category": "Upgrade",
+      "display_name": "Ultra-Glide Fins",
+      "reveal_trigger": "blackbox_signal_beta",
+      "hint_text": "Equipment log recovered: high-efficiency swim fins stowed in secondary locker, sector 4.",
+      "location_hint": "Sunken supply module, east side of crash field. Access panel on the port side, ~45m.",
+      "collected": false
+    },
+    {
+      "id": "noa_log_01_origin",
+      "category": "NOALog",
+      "display_name": "NOA Log: Origin",
+      "reveal_trigger": "noa_terminal_lifepod",
+      "hint_text": "NOA: I've recovered a partial memory archive. You should hear this.",
+      "location_hint": "Accessible directly from the lifepod NOA terminal after initial boot sequence.",
+      "collected": false
+    },
+    {
+      "id": "loot_titanium_cache_01",
+      "category": "Loot",
+      "display_name": "Titanium Cache (Wreck Bay)",
+      "reveal_trigger": "blackbox_signal_alpha",
+      "hint_text": "Structural analysis shows salvageable alloy concentrations near the main hull breach.",
+      "location_hint": "Inside the Aurora hull breach, first chamber. Three wall-mounted resource caches.",
+      "collected": false
+    },
+    {
+      "id": "scannable_alien_ruin_fragment",
+      "category": "Scannable",
+      "display_name": "Alien Ruin Fragment",
+      "reveal_trigger": "noa_terminal_habitat_alpha",
+      "hint_text": "NOA: This material composition doesn't match anything in the ship's database. Origin unknown.",
+      "location_hint": "Grassy plateaus biome, south-east. Partially exposed stone formation at ~120m, bioluminescent markings.",
+      "collected": false
+    }
+  ]
+}
